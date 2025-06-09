@@ -9,8 +9,28 @@ the text of their review if they want to say more.
 
 Customer
 	- Buy CD
+		- In stock
+		    - Customer pay by card to puchased CD
+			- Payment Success 
+				- Then stock reduce by 1 for puchased CD
+			- Payment Failure
+				- Stock remains same for CD
+				- Alert customer regading payment failure 
+		- Not in stock
+			- Then show 'out of stock' to customer for CD
 	- Search for CD
+	    - By title
+			- Then show all CDs with searched title.
+		- By Artist
+		    - Then show all CDs with searched artist.
+		- if nothing found on search criteria then retun 'No Result'
 	- Review a CD that they have bought
+	    - Customers that has bought CD
+			- Customer needs to provide rating in range of 1-10 for bought CD.
+			- Optional additional comment on review will be accept in text format.
+	    - Customers that has not bought CD
+		    - They should now allow to provide any review. 
 
 Record Label
 	- Restock (send batches of CDs)
+		- 
