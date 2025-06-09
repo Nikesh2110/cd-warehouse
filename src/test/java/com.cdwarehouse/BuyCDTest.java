@@ -2,7 +2,7 @@ package com.cdwarehouse;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BuyCDTest {
 
@@ -12,5 +12,9 @@ public class BuyCDTest {
         assertTrue(payment.checkPaymentStatus());
     }
 
-
+    @Test
+    void buyCDWhenPaymentIsSuccessful() {
+        CDStock cdStock = new CDStock();
+        assertEquals(1, cdStock.getStock());
+    }
 }
