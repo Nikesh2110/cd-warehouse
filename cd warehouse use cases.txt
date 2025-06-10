@@ -10,12 +10,12 @@ the text of their review if they want to say more.
 Customer
 	- Buy CD
 		- In stock
-		    - Customer pay by card to puchased CD
+		    - Customer pay by card to purchased CD
 			- Payment Success
-				- Then stock reduce by 1 for puchased CD
+				- Then stock reduce by 1 for purchased CD
 			- Payment Failure
 				- Stock remains same for CD
-				- Alert customer regading payment failure 
+				- Alert customer reading payment failure
 		- Not in stock
 			- Then show 'out of stock' to customer for CD
 	- Search for CD
@@ -23,7 +23,7 @@ Customer
 			- Then show all CDs with searched title.
 		- By Artist
 		    - Then show all CDs with searched artist.
-		- if nothing found on search criteria then retun 'No Result'
+		- if nothing found on search criteria then return 'No Result'
 	- Review a CD that they have bought
 	    - Customers that has bought CD
 			- Customer needs to provide rating in range of 1-10 for bought CD.

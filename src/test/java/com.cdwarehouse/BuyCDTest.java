@@ -14,19 +14,19 @@ public class BuyCDTest {
 
     @Test
     void buyCDWhenPaymentIsSuccessful() {
-        CDStock cdStock = new CDStock();
-        assertEquals(1, cdStock.getStock());
+        CDStock cdStock = new CDStock(10);
+        assertEquals(10, cdStock.getStock());
     }
 
     @Test
     void checkCDinStock(){
-        CDStock cdStock = new CDStock();
+        CDStock cdStock = new CDStock(1);
         assertTrue(cdStock.checkCDinStock("ABC"));
     }
 
     @Test
     void checkCDNotInStock(){
-        CDStock cdStock = new CDStock();
+        CDStock cdStock = new CDStock(0);
         assertFalse(cdStock.checkCDinStock("XYZ"));
     }
 
