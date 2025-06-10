@@ -14,9 +14,9 @@ public class NotificationOfSalesTest
         Payment payment = mock(Payment.class);
         NotifySales notifySale = mock(NotifySales.class);
         CDStock cdStock = new CDStock(10);
-        CD buyCD = new CD(payment, notifySale);
+        CD buyCD = new CD();
         when(payment.checkPaymentStatus()).thenReturn(true);
-        buyCD.buyCD("ABC", cdStock);
+        buyCD.buyCD("ABC", cdStock,payment, notifySale);
         verify(notifySale).notificationCompleted("ABC", "artist", 1);
     }
 }

@@ -9,10 +9,8 @@ public class TopAlbumsTest {
 
     @Test
     void top100Albums() {
-        Payment payment = mock(Payment.class);
-        NotifySales notifySale = mock(NotifySales.class);
         TopAlbums topAlbums = mock(TopAlbums.class);
-        CD cd = new CD(payment, notifySale);
+        CD cd = new CD();
         CompetitorPrice competitorPrice = mock(CompetitorPrice.class);
         cd.getPrice("ABC", topAlbums, competitorPrice);
         verify(topAlbums).checkAlbumIsInTop("ABC", 100);
@@ -20,10 +18,8 @@ public class TopAlbumsTest {
 
     @Test
     void competitorPrice() {
-        Payment payment = mock(Payment.class);
-        NotifySales notifySale = mock(NotifySales.class);
         TopAlbums topAlbums = mock(TopAlbums.class);
-        CD cd = new CD(payment, notifySale);
+        CD cd = new CD();
         CompetitorPrice competitorPrice = mock(CompetitorPrice.class);
         when(topAlbums.checkAlbumIsInTop("ABC", 100)).thenReturn(true);
         cd.getPrice("ABC", topAlbums, competitorPrice);
@@ -33,10 +29,8 @@ public class TopAlbumsTest {
 
     @Test
     void top100AlbumsPriceReduction(){
-        Payment payment = mock(Payment.class);
-        NotifySales notifySale = mock(NotifySales.class);
         TopAlbums topAlbums = mock(TopAlbums.class);
-        CD cd = new CD(payment, notifySale);
+        CD cd = new CD();
         CompetitorPrice competitorPrice = mock(CompetitorPrice.class);
         when(topAlbums.checkAlbumIsInTop("ABC", 100)).thenReturn(true);
         when(competitorPrice.getCompetitorPrice("ABC")).thenReturn(19.99);
@@ -45,10 +39,8 @@ public class TopAlbumsTest {
 
     @Test
     void albumNotInTop100(){
-        Payment payment = mock(Payment.class);
-        NotifySales notifySale = mock(NotifySales.class);
         TopAlbums topAlbums = mock(TopAlbums.class);
-        CD cd = new CD(payment, notifySale);
+        CD cd = new CD();
         CompetitorPrice competitorPrice = mock(CompetitorPrice.class);
         when(topAlbums.checkAlbumIsInTop("ABC", 100)).thenReturn(false);
         assertEquals(9.99,cd.getPrice("ABC", topAlbums, competitorPrice));

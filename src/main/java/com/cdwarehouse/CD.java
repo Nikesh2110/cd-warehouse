@@ -2,17 +2,7 @@ package com.cdwarehouse;
 
 public class CD
 {
-
-    private Payment payment;
-    private NotifySales notifySale;
-
-    public CD(Payment payment, NotifySales notifySale)
-    {
-        this.payment = payment;
-        this.notifySale = notifySale;
-    }
-
-    public boolean buyCD(String title, CDStock cdStock) {
+    public boolean buyCD(String title, CDStock cdStock, Payment payment, NotifySales notifySale) {
 
         if (cdStock.getStock(title) > 0) {
             if (payment.checkPaymentStatus()) {
