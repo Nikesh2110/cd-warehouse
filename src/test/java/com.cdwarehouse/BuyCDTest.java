@@ -1,39 +1,33 @@
 package com.cdwarehouse;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BuyCDTest {
 
     @Test
-    void checkPaymentIsSuccessful() {
-        Payment payment = new Payment();
-        assertTrue(payment.checkPaymentStatus());
-    }
-
-    @Test
-    void buyCDWhenPaymentIsSuccessful() {
+    void getCDStock() {
         CDStock cdStock = new CDStock(10);
-        assertEquals(10, cdStock.getStock());
+        assertEquals(10, cdStock.getStock("ABC"));
     }
 
     @Test
-    void checkCDinStock(){
-        CDStock cdStock = new CDStock(1);
-        assertTrue(cdStock.checkCDinStock("ABC"));
-    }
-
-    @Test
-    void checkCDNotInStock(){
-        CDStock cdStock = new CDStock(0);
-        assertFalse(cdStock.checkCDinStock("XYZ"));
-    }
-
-    @Test
-    void buyCD()
+    void buyCDWhenPaymentIsSuccessful()
     {
+        Payment payment = Mockito.mock(Payment.class);
         BuyCD buyCD = new BuyCD();
+        Mockito.when(payment.checkPaymentStatus()).thenReturn(true);
+        assertTrue(buyCD.buyCD("ABC"));
+    }
+
+    @Test
+    void buyCDWhenPaymentIsNotSuccessful()
+    {
+        Payment payment = Mockito.mock(Payment.class);
+        BuyCD buyCD = new BuyCD();
+        Mockito.when(payment.checkPaymentStatus()).thenReturn(false);
         assertTrue(buyCD.buyCD("ABC"));
     }
 

@@ -9,15 +9,11 @@ public class CDStock {
         this.cdStock = cdStock;
     }
 
-    public int getStock() {
-        return cdStock;
-    }
-
-    public boolean checkCDinStock(String title)
-    {
-        if (title.equals("ABC")) {
-            return true;
+    public int getStock(String title) {
+        if (title.equals("ABC"))
+        {
+            return cdStock;
         }
-        return false;
+        return 0;
     }
 }
