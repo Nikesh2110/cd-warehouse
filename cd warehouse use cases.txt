@@ -38,3 +38,10 @@ them the artist and title of the CD bought, and how many copies were sold.
 
 We offer a price guarantee for albums that are in the Top 100. We guarantee
 to beat the lowest competitor’s price by £1.
+
+check album is in the top 100 list
+    if yes
+        get competitor price
+        charge competitor price - 1
+    if no
+        charge normal price

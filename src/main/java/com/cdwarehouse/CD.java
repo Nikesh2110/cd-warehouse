@@ -23,4 +23,11 @@ public class CD
         }
         return false;
     }
+
+    public double getPrice(String title, TopAlbums topAlbums, CompetitorPrice competitorPrice) {
+        if(topAlbums.checkAlbumIsInTop(title, 100)) {
+            return competitorPrice.getCompetitorPrice(title)-1;
+        }
+        return 9.99;
+    }
 }
