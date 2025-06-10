@@ -11,7 +11,7 @@ Customer
 	- Buy CD
 		- In stock
 		    - Customer pay by card to puchased CD
-			- Payment Success 
+			- Payment Success
 				- Then stock reduce by 1 for puchased CD
 			- Payment Failure
 				- Stock remains same for CD
