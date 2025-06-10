@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BuyCDTest {
 
+
     @Test
     void getCDStock() {
         CDStock cdStock = new CDStock(10);
@@ -22,7 +23,7 @@ public class BuyCDTest {
     @Test
     void buyCDWhenPaymentIsSuccessful() {
         Payment payment = Mockito.mock(Payment.class);
-        BuyCD buyCD = new BuyCD();
+        BuyCD buyCD = new BuyCD(payment);
         CDStock cdStock = new CDStock(10);
         String title = "ABC";
         Mockito.when(payment.checkPaymentStatus()).thenReturn(true);
@@ -33,7 +34,7 @@ public class BuyCDTest {
     @Test
     void buyCDWhenPaymentIsNotSuccessful() {
         Payment payment = Mockito.mock(Payment.class);
-        BuyCD buyCD = new BuyCD();
+        BuyCD buyCD = new BuyCD(payment);
         CDStock cdStock = new CDStock(10);
         String title = "ABC";
         Mockito.when(payment.checkPaymentStatus()).thenReturn(false);
@@ -43,7 +44,8 @@ public class BuyCDTest {
 
     @Test
     void checkCDIsNotInStockWhenBuying(){
-        BuyCD buyCD = new BuyCD();
+        Payment payment = Mockito.mock(Payment.class);
+        BuyCD buyCD = new BuyCD(payment);
         assertFalse(buyCD.buyCD("XYZ", new CDStock(10)));
     }
 
