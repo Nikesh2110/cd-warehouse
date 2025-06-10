@@ -14,21 +14,28 @@ public class BuyCDTest {
     }
 
     @Test
-    void buyCDWhenPaymentIsSuccessful()
-    {
-        Payment payment = Mockito.mock(Payment.class);
-        BuyCD buyCD = new BuyCD();
-        Mockito.when(payment.checkPaymentStatus()).thenReturn(true);
-        assertTrue(buyCD.buyCD("ABC"));
+    void reduceCDStock() {
+        CDStock cdStock = new CDStock(10);
+        assertEquals(9, cdStock.reduceStock("ABC"));
     }
 
     @Test
-    void buyCDWhenPaymentIsNotSuccessful()
-    {
+    void buyCDWhenPaymentIsSuccessful() {
+        Payment payment = Mockito.mock(Payment.class);
+        BuyCD buyCD = new BuyCD();
+        CDStock cdStock = new CDStock(10);
+        String title = "ABC";
+        Mockito.when(payment.checkPaymentStatus()).thenReturn(true);
+        assertTrue(buyCD.buyCD(title, cdStock));
+        assertEquals(9, cdStock.getStock(title));
+    }
+
+    @Test
+    void buyCDWhenPaymentIsNotSuccessful() {
         Payment payment = Mockito.mock(Payment.class);
         BuyCD buyCD = new BuyCD();
         Mockito.when(payment.checkPaymentStatus()).thenReturn(false);
-        assertTrue(buyCD.buyCD("ABC"));
+        assertTrue(buyCD.buyCD("ABC", new CDStock(10)));
     }
 
 }

@@ -1,10 +1,9 @@
 package com.cdwarehouse;
 
-public class CardPayment implements Payment{
+public class CardPayment implements Payment {
 
     @Override
-    public boolean checkPaymentStatus()
-    {
+    public boolean checkPaymentStatus() {
         return true;
     }
 }
