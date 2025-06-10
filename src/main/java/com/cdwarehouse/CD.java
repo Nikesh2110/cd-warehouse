@@ -7,7 +7,7 @@ public class CD
         if (cdStock.getStock(title) > 0) {
             if (payment.checkPaymentStatus()) {
                 cdStock.reduceStock(title);
-                notifySale.notificationCompleted(title, "artist", 1);
+                notifySale.notify(title, "artist", 1);
                 return true;
             }
         }

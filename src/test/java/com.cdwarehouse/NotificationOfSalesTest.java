@@ -17,6 +17,6 @@ public class NotificationOfSalesTest
         CD buyCD = new CD();
         when(payment.checkPaymentStatus()).thenReturn(true);
         buyCD.buyCD("ABC", cdStock,payment, notifySale);
-        verify(notifySale).notificationCompleted("ABC", "artist", 1);
+        verify(notifySale).notify("ABC", "artist", 1);
     }
 }
