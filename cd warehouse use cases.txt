@@ -5,8 +5,6 @@ Customers can leave reviews for CDs they’ve bought through the
 warehouse, which gives each title an integer rating from 1- 10 and
 the text of their review if they want to say more.
 
-
-
 Customer
 	- Buy CD
 		- In stock
@@ -33,4 +31,10 @@ Customer
 
 Record Label
 	- Restock (send batches of CDs)
-		- 
+
+When someone buys a CD, we need to notify the charts of the sale, telling
+them the artist and title of the CD bought, and how many copies were sold.
+
+
+We offer a price guarantee for albums that are in the Top 100. We guarantee
+to beat the lowest competitor’s price by £1.
