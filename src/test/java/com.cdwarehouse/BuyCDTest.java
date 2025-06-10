@@ -34,8 +34,17 @@ public class BuyCDTest {
     void buyCDWhenPaymentIsNotSuccessful() {
         Payment payment = Mockito.mock(Payment.class);
         BuyCD buyCD = new BuyCD();
+        CDStock cdStock = new CDStock(10);
+        String title = "ABC";
         Mockito.when(payment.checkPaymentStatus()).thenReturn(false);
-        assertTrue(buyCD.buyCD("ABC", new CDStock(10)));
+        assertFalse(buyCD.buyCD(title, cdStock));
+        assertEquals(10, cdStock.getStock(title));
+    }
+
+    @Test
+    void checkCDIsNotInStockWhenBuying(){
+        BuyCD buyCD = new BuyCD();
+        assertFalse(buyCD.buyCD("XYZ", new CDStock(10)));
     }
 
 }
